@@ -1,0 +1,16 @@
+#ball{
+    background-color: red;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    border-radius: 50%;
+}
+#plate{
+    width: 150px;
+    height: 10px;
+    position: absolute;
+    left: 0px;
+    top: 470px;
+    position: absolute;
+    background-color: black;
+}
