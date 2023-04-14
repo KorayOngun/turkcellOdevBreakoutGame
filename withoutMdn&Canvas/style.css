@@ -4,6 +4,7 @@
     height: 18px;
     position: absolute;
     border-radius: 50%;
+    z-index: 1;
 }
 #plate{
     width: 150px;
@@ -13,4 +14,11 @@
     top: 470px;
     position: absolute;
     background-color: black;
+    z-index: 1;
+}
+.brick{
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    z-index: 0;
 }
