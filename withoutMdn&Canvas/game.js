@@ -1,16 +1,24 @@
+
+//game screen
 const gameDiv = document.getElementById("game");
 var game_top = 0;
 var game_bottom = 480;
 var game_left = 0;
 var game_right = 720;
+
+
+//ball
 var ball_x = 50;
 var ball_y = 200;
 var ball = document.createElement("div");
 ball.id = "ball";
-
 gameDiv.appendChild(ball);
+
+//ball movement
 var dX = 0;
 var dY = 1;
+
+//plate
 var plate = document.createElement("div");
 var plate_left = 0;
 var isLeft = false;
@@ -18,18 +26,25 @@ var isRight = false;
 var isMove = false;
 plate.id = "plate";
 gameDiv.appendChild(plate);
+
+// brick
 const brickRow = 3;
 const brickColumn = 6;
 var bricks = [];
-var c = 1;
+
+
+//score
+var score = 0
+var score_view = document.createElement("div")
+score_view.innerHTML = score
+gameDiv.appendChild(score_view)
+
 function createBricks() {
   for (let i = 0; i < brickRow; i++) {
     for (let j = 0; j < brickColumn; j++) {
       var brick = document.createElement("div");
       brick.className = "brick";
-      brick.id = c;
-      c = c + 1;
-      brick.style.top = `${20 + 30 * i}px`;
+      brick.style.top = `${20 + 40 * i}px`;
       brick.style.backgroundColor = "black";
       brick.style.left = `${10 + 120 * j}px`;
       bricks.push(brick);
@@ -114,6 +129,8 @@ function brickCollision() {
   var brick = bricks.find(findBrick);
   if (brick) {
     brick.remove();
+    score = score +1
+    score_view.innerHTML = score
   }
 }
 function findBrick(b) {
@@ -133,8 +150,6 @@ function findBrick(b) {
     dY = -1;
     return true;
   }
-  c = c - 1;
-
   return false;
 }
 
@@ -144,4 +159,4 @@ function game() {
   collisionDetection();
 }
 
-setInterval(game, 1);
+setInterval(game, 5);
